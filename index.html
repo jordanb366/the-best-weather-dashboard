@@ -15,19 +15,19 @@
     <main class="row container-fluid">
         <aside class="aside-container col-3">
                 <h2>Search for a City:</h2>
-                <input class="w-100" type="text" placeholder="Kansas City">
-                <button class="btn btn-info btn-block" type="submit">Search</button>
+                <input id="user-input"class="w-100" type="text" placeholder="Kansas City">
+                <button id="cityBtn"class="btn btn-info btn-block" type="submit">Search</button>
                 <hr>
         </aside>
         <div class="col-8 m-4">
-            <div class="bg-primary m-2 p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit amet et voluptatibus! Animi nostrum impedit expedita deleniti quasi distinctio cum neque aspernatur tempora, dolorum adipisci quo non commodi quod quia.</div>
-            <div class="bg-info m-2 p-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt quia, soluta sint eveniet sit alias qui ducimus et quibusdam, quas praesentium fuga officiis doloribus illo laboriosam eum nam enim laborum?</div>
+            <div class="bg-primary m-2 p-2" id="current-weather-container"></div>
+            <div class="bg-info m-2 p-2" id="five-day-forecast"></div>
         </div>
     </main>
     <section class="cities-searched-container row container-fluid col-3">
-            <button class="btn btn-info btn-block" type="submit">Kansas City</button>
-            <button class="btn btn-info btn-block" type="submit">Minneapolis</button>
-            <button class="btn btn-info btn-block" type="submit">Miami</button>
+        <ul id="cities-searched-list">
+            <li><button class="btn btn-info btn-block" type="submit">Kansas City</button></li>
+        </ul>
     </section>
 
 
