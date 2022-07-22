@@ -16,18 +16,25 @@
         <aside class="aside-container col-3">
                 <h2>Search for a City:</h2>
                 <input id="user-input"class="w-100" type="text" placeholder="Kansas City">
-                <button id="cityBtn"class="btn btn-info btn-block" type="submit">Search</button>
+                <button id="cityBtn"class="btn btn-info btn-block" required type="submit">Search</button>
                 <hr>
         </aside>
         <div class="col-8 m-4">
             <div class="bg-primary m-2 p-2" id="current-weather-container"></div>
-            <div class="bg-info m-2 p-2" id="five-day-forecast"></div>
+            <div class="row bg-info m-2 p-2 justify-content-center" id="five-day-forecast">
+                <div class="card m-2 p-2"></div>
+                <div class="card m-2 p-2"></div>
+                <div class="card m-2 p-2"></div>
+                <div class="card m-2 p-2"></div>
+                <div class="card m-2 p-2"></div>
+            </div>
         </div>
     </main>
     <section class="cities-searched-container row container-fluid col-3">
-        <ul id="cities-searched-list">
-            <li><button class="btn btn-info btn-block" type="submit">Kansas City</button></li>
-        </ul>
+        <div id="cities-searched-list">
+            <button class="btn btn-info btn-block test2" type="submit">test</button>
+         </div>   
+        
     </section>
 
 
