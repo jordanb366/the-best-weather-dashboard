@@ -6,6 +6,8 @@ var citiesSearchedList = document.querySelector("#cities-searched-list");
 var currentWeatherContainer = document.querySelector("#current-weather-container");
 var fiveDayForecast = document.querySelector("#five-day-forecast");
 
+var saveTheWeather = [];
+
    
 
 cityBtn.addEventListener("click", function(event){
@@ -122,26 +124,55 @@ function showCitiesSearched() {
 
 
 
-var test = document.querySelectorAll(".test2");
-console.log(test);
-// Save planner to local storage
+
+
+// Save to local storage
 function saveWeather() {
     // Save related form data as an object
     
+    console.log(userInput.value);
+    saveTheWeather.push(userInput.value);
+    uniqWeather = [...new Set(saveTheWeather)];
+
+    console.log(saveTheWeather);
+
     
-    var savedWeather = {
-        userInput: userInput.value
+    
+    // var savedWeather = {
+    //     userInput: userInput.value
         
 
-    };
+    // };
     // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-    localStorage.setItem("savedWeather", JSON.stringify(savedWeather));
+    localStorage.setItem("savedWeather", JSON.stringify(uniqWeather));
   
   };
 
-// Get planner from local storage
+// Get from local storage
 function getWeather() {
 // Use JSON.parse() to convert text to JavaScript object
     var grabSaveWeather = JSON.parse(localStorage.getItem("savedWeather"));
     
+
+    for (var i = 0; i < grabSaveWeather.length; i++) {
+      saveTheWeather.push(grabSaveWeather[i]);
+    }
+    console.log(grabSaveWeather);
 }
+
+getWeather();
+
+
+function showExistingCities() {
+ for (var i = 0; i < saveTheWeather.length; i++) {
+  var button = document.createElement("button");
+    button.classList.add("btn", "btn-info", "btn-block", "test");
+    button.textContent = saveTheWeather[i];
+    citiesSearchedList.append(button);
+
+ }
+    
+  
+}
+
+showExistingCities();
