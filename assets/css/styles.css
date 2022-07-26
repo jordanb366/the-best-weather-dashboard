@@ -16,3 +16,12 @@
 .cities-searched-container {
     margin: 10px;
 }
+
+#current-weather-container {
+    display: none;
+}
+
+#five-day-forecast {
+    display: none;
+}
+
