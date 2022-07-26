@@ -33,7 +33,7 @@ cityBtn.addEventListener("click", function(event){
 
 
 function currentWeather(city) {
-  // var city = userInput.value;
+  
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + APIKey;
    
     fetch(apiUrl)
@@ -41,14 +41,9 @@ function currentWeather(city) {
         return response.json();
      })
      .then(function (data) {
-     //Using console.log to examine the data
-     console.log(data);
+   
 
   
-      console.log(data.name);
-      console.log("Temp: " + data.main.temp + " degrees F");
-      console.log("Wind: " + data.wind.speed + " MPH");
-      console.log("Humidity: " + data.main.humidity + " %");
       
       var icon = document.createElement("img");
       
@@ -76,7 +71,7 @@ function currentWeather(city) {
 }
 
 function weatherForeCast(city) {
-// var city = userInput.value;
+
 
 
 var secondApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=5" + "&units=imperial" + "&appid=" + APIKey;
@@ -85,15 +80,10 @@ fetch(secondApiUrl)
     return response.json();
  })
  .then(function (data) {
-//     //Using console.log to examine the data
- console.log(data);
+
   
   for (var i = 0; i < data.list.length; i++) {
     
-      console.log("Temp: " + data.list[i].main.temp + " degrees F");
-
-      console.log(data.list[i].main.temp);
-      
       
 
       var forecastCards = document.querySelectorAll(".card")[i];
@@ -166,7 +156,7 @@ for (let i = 0; i < saveTheWeather.length; i++) {
     button.classList.add("btn", "btn-info", "btn-block", "test");
     button.textContent = saveTheWeather[i];
     citiesSearchedList.append(button);
-  button.addEventListener("click", function(){
+    button.addEventListener("click", function(){
     currentWeather(saveTheWeather[i]);
     weatherForeCast(saveTheWeather[i]);
     currentWeatherContainer.style.display = "block";
