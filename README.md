@@ -8,7 +8,7 @@ The weather dashboard is a weather app using OpenWeatherAPI to search via a city
 
 # Screenshot
 
-![Screenshot of app](./Assets/img/Screenshot1.png)
+![Screenshot of app](./assets/img/Screenshot1.png)
 
 # Link to deployed application
 
