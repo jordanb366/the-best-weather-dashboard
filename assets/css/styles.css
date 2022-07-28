@@ -25,3 +25,14 @@
     display: none;
 }
 
+.uv-favorable-conditions {
+    background-color: green;
+}
+
+.uv-moderate-conditions {
+    background-color: yellow;
+}
+
+.uv-severe-conditions {
+    background-color: red;
+}
