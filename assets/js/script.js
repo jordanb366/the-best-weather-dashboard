@@ -42,7 +42,7 @@ function currentWeather(city) {
    console.log(data.dt);
 
   lat = data.coord.lat;
-  lon.tested = data.coord.lon;
+  lon = data.coord.lon;
   
 
       var icon = document.createElement("img");
@@ -76,24 +76,75 @@ function currentWeather(city) {
       currentWeatherContainer.append(cityTemp);
       currentWeatherContainer.append(cityWind);
       currentWeatherContainer.append(cityHumidity);
+      console.log(lat);
+      console.log(lon);
+ 
+     var coordinatesUrl = "https://api.openweathermap.org/data/2.5/onecall?" +"lon=" + lon + "&lat=" + lat + "&units=imperial" + "&appid=" + APIKey;
+    
+       fetch(coordinatesUrl)
+       .then(function (response) {
+          return response.json();
+       })
+       .then(function (data) {
+        console.log(data);
 
+        
+                console.log(data);
+                var uvIndex = document.createElement("p");
+                uvIndex.textContent = "UV Index: " + data.current.uvi;
+        
+                // Adds color indication for UV conditions
+                if (data.current.uvi < 2 ) {
+                  uvIndex.classList.add("uv-favorable-conditions");
+                } else if (data.current.uvi > 2 || data.current.uvi < 5) {
+                  uvIndex.classList.add("uv-moderate-conditions");
+                } else {
+                  uvIndex.classList.add("uv-severe-conditions");
+                }
+                currentWeatherContainer.append(uvIndex);
+        
+          for (var i = 0; i < 5; i++) {
+            
+        
+              var forecastCards = document.querySelectorAll(".card")[i];
+              var weatherDate = document.createElement("p");
+              var icon = document.createElement("img");
+              
+              var imgURL = "https://openweathermap.org/img/wn/";
+              var getIcons = imgURL + data.daily[i].weather[0].icon + ".png";
+            
+              var tempNow = document.createElement("p");
+              var windNow = document.createElement("p");
+              var humidityNow = document.createElement("p");
+        
+        // Get the date -- not working yet
+              var timeStamp = data.daily[i].dt;
+              var date = new Date(timeStamp * 1000);
+              var actualDate = date.toLocaleString();
+        
+              console.log(actualDate);
+              forecastCards.innerHTML = "";
+            
+              weatherDate.textContent = actualDate; 
+              icon.src = getIcons;
+              tempNow.textContent = "Temp: " + data.daily[i].temp.day + " degrees F";
+              windNow.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
+              humidityNow.textContent = "Humidity: " + data.daily[i].humidity + " %";
+        
+              console.log(tempNow);
+              forecastCards.append(weatherDate);
+              forecastCards.append(icon);
+              forecastCards.append(tempNow);
+              forecastCards.append(windNow);
+              forecastCards.append(humidityNow);   
+            }
+ 
+       });
 
       
       });
 
-     console.log(lat);
-     console.log(lon);
-
-    var coordinatesUrl = "https://api.openweathermap.org/data/2.5/onecall?" +"lon=" + lon + "&lat=" + lat + "&units=imperial" + "&appid=" + APIKey;
-   
-      fetch(coordinatesUrl)
-      .then(function (response) {
-         return response.json();
-      })
-      .then(function (data) {
-       
-
-      });
+     
 
       }
       
@@ -101,6 +152,57 @@ function currentWeather(city) {
 
 
 
+//  weatherForeCast(userInput.value);
+
+
+// function weatherForeCast(city) {
+
+// var secondApiUrl = "https://api.openweathermap.org/data/2.5/forecast/?q=" + city  + "&cnt=5" + "&units=imperial" + "&appid=" + APIKey;
+// fetch(secondApiUrl)
+// .then(function (response) {
+//     return response.json();
+//  })
+//  .then(function (data) {
+
+//   console.log(data);
+
+//   for (var i = 0; i < data.list.length; i++) {
+    
+
+//       var forecastCards = document.querySelectorAll(".card")[i];
+//       // var weatherDate = document.createElement("p");
+//       var icon = document.createElement("img");
+      
+//       var imgURL = "https://openweathermap.org/img/wn/";
+//       var getIcons = imgURL + data.list[i].weather[0].icon + ".png";
+    
+//       var tempNow = document.createElement("p");
+//       var windNow = document.createElement("p");
+//       var humidityNow = document.createElement("p");
+
+// // Get the date -- not working yet
+//       var timeStamp = data.list[i].dt;
+//       var date = new Date(timeStamp * 1000);
+//       var actualDate = date.toLocaleString();
+
+//       console.log(actualDate);
+//       forecastCards.innerHTML = "";
+    
+//       // weatherDate.textContent = actualDate; 
+//       icon.src = getIcons;
+//       tempNow.textContent = "Temp: " + data.list[i].main.temp + " degrees F";
+//       windNow.textContent = "Wind: " + data.list[i].wind.speed + " MPH";
+//       humidityNow.textContent = "Humidity: " + data.list[i].main.humidity + " %";
+
+//       console.log(tempNow);
+//       // forecastCards.append(weatherDate);
+//       forecastCards.append(icon);
+//       forecastCards.append(tempNow);
+//       forecastCards.append(windNow);
+//       forecastCards.append(humidityNow);   
+//     }
+//   });
+// }
 
 // Save to local storage
 function saveWeather() {
@@ -134,3 +236,81 @@ function showExistingCities() {
 }
 showExistingCities();
 
+
+//  for (var i = 0; i < saveTheWeather.length; i++) {
+//   function saveI(i) {
+
+  
+//   var button = document.createElement("button");
+//     button.classList.add("btn", "btn-info", "btn-block", "test");
+//     button.textContent = saveTheWeather[i];
+//     citiesSearchedList.append(button);
+//   button.addEventListener("click", function(){
+//     currentWeather(saveTheWeather[i]);
+//     weatherForeCast(saveTheWeather[i]);
+//   });
+// } saveI(i)
+//  } 
+
+
+// function coordinates(lat, lon) {
+  //     var coordinatesUrl = "https://api.openweathermap.org/data/2.5/onecall?" +"lon=" + lon + "&lat=" + lat + "&units=imperial" + "&appid=" + APIKey;
+     
+  //       fetch(coordinatesUrl)
+  //       .then(function (response) {
+  //          return response.json();
+  //       })
+  //       .then(function (data) {
+  //         console.log(data);
+  //         var uvIndex = document.createElement("p");
+  //         uvIndex.textContent = "UV Index: " + data.current.uvi;
+  
+  //         // Adds color indication for UV conditions
+  //         if (data.current.uvi < 2 ) {
+  //           uvIndex.classList.add("uv-favorable-conditions");
+  //         } else if (data.current.uvi > 2 || data.current.uvi < 5) {
+  //           uvIndex.classList.add("uv-moderate-conditions");
+  //         } else {
+  //           uvIndex.classList.add("uv-severe-conditions");
+  //         }
+  //         currentWeatherContainer.append(uvIndex);
+  
+  //   for (var i = 0; i < 5; i++) {
+      
+  
+  //       var forecastCards = document.querySelectorAll(".card")[i];
+  //       var weatherDate = document.createElement("p");
+  //       var icon = document.createElement("img");
+        
+  //       var imgURL = "https://openweathermap.org/img/wn/";
+  //       var getIcons = imgURL + data.daily[i].weather[0].icon + ".png";
+      
+  //       var tempNow = document.createElement("p");
+  //       var windNow = document.createElement("p");
+  //       var humidityNow = document.createElement("p");
+  
+  // // Get the date -- not working yet
+  //       var timeStamp = data.daily[i].dt;
+  //       var date = new Date(timeStamp * 1000);
+  //       var actualDate = date.toLocaleString();
+  
+  //       console.log(actualDate);
+  //       forecastCards.innerHTML = "";
+      
+  //       weatherDate.textContent = actualDate; 
+  //       icon.src = getIcons;
+  //       tempNow.textContent = "Temp: " + data.daily[i].temp.day + " degrees F";
+  //       windNow.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
+  //       humidityNow.textContent = "Humidity: " + data.daily[i].humidity + " %";
+  
+  //       console.log(tempNow);
+  //       forecastCards.append(weatherDate);
+  //       forecastCards.append(icon);
+  //       forecastCards.append(tempNow);
+  //       forecastCards.append(windNow);
+  //       forecastCards.append(humidityNow);   
+  //     }
+  
+  //       });
+  
+  //       }
