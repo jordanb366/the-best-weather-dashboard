@@ -1,38 +1,57 @@
+/* Sets default margin and padding and box sizing to border box */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Gives the class a background color and padding */
 .header-background {
     background-color: rgb(61, 61, 61);
     padding: 20px;
 }
 
+/* All elements in the aside to margin 10px */
 .aside-container * {
     margin: 10px;
 }
 
+/* Gives the cities searched container margin 10px */
 .cities-searched-container {
     margin: 10px;
 }
 
+/* Sets the current weather container to display none until the search button is clicked */
 #current-weather-container {
     display: none;
 }
 
+
+/* Sets the five day forecast container to display none until the search button is clicked */
 #five-day-forecast {
     display: none;
 }
 
+/* For UV index conditions */
+/* Favorable UV conditions */
 .uv-favorable-conditions {
+    width: 20%;
     background-color: green;
 }
 
+/* Moderate conditions */
 .uv-moderate-conditions {
+    width: 20%;
     background-color: yellow;
 }
 
+/* Severe Conditions for UV Index */
 .uv-severe-conditions {
+    width: 20%;
     background-color: red;
+}
+
+/* Makes the weather icons smaller in the card containers */
+.card img {
+    width: 30%;
 }

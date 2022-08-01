@@ -9,39 +9,57 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
+    <!-- Header section -->
     <header class="header-background">
         <h1 class="text-center text-primary font-weight-bold">Weather Dashboard</h1>
     </header>
+    <!-- Main area -->
     <main class="row container-fluid">
-        <aside class="aside-container col-3">
+        <!-- Aside container to the left -->
+        <aside class="aside-container col-sm-12 col-md-6 col-lg-3">
+           <form>
                 <h2>Search for a City:</h2>
                 <input id="user-input"class="w-100" type="text" placeholder="San Diego">
                 <button id="cityBtn"class="btn btn-info btn-block" required type="submit">Search</button>
                 <hr>
+            </form>
+
+              <!-- Search History heading  -->
+            <h3 class="m-4">Search History</h3>
+            <!-- Div Containers for search history -->
+                <div class="cities-searched-container container-fluid"> 
+                    <div id="cities-searched-list">
+                    </div>      
+                </div>
         </aside>
-        <div class="col-8 m-4">
-            <div class="bg-primary m-2 p-2" id="current-weather-container"></div>
-            
-            <div class="row bg-info m-2 p-2 justify-content-center" id="five-day-forecast">
-                <h3>5 Day Forecast</h3>
+        <!-- Weather containers -->
+        <div class="col-sm-12 col-md-6 col-lg-8 m-4">
+            <div class="bg-primary m-2 p-2" id="current-weather-container">
+
+            </div>
+           <!-- Five day forecast container -->
+            <div class="row bg-primary m-2 p-2 justify-content-around" id="five-day-forecast">
+                
+                <h3 class="m-4">5 Day Forecast:</h3>
+               <!-- Contains all the cards for the daily forecast 5 day -->
                 <div class="row">
-                <div class="card m-2 p-2"></div>
-                <div class="card m-2 p-2"></div>
-                <div class="card m-2 p-2"></div>
-                <div class="card m-2 p-2"></div>
-                <div class="card m-2 p-2"></div>
+                    <div class="card m-2 p-2"></div>
+                    <div class="card m-2 p-2"></div>
+                    <div class="card m-2 p-2"></div>
+                    <div class="card m-2 p-2"></div>
+                    <div class="card m-2 p-2"></div>
                 </div>
             </div>
         </div>
     </main>
-    <section class="row container-fluid col-3">
+    <!-- <section class="row container-fluid col-3">
             <h3 class="m-4">Search History</h3>
     </section>
 
     <section class="cities-searched-container row container-fluid col-3"> 
         <div id="cities-searched-list">
         </div>      
-    </section>
+    </section> -->
 
 
 
