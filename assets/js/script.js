@@ -34,18 +34,7 @@ cityBtn.addEventListener("click", function(event){
     }
 }); 
 
-// function test(latitude, longitude){
-//   console.log(latitude);
-//   console.log(longitude);
-//   return latitude, longitude;
-//   test(lat, lon); 
-  
-// };
 
-//  for (var i = 0; i < saveTheWeather.length; i++) {
-//   function saveI(i) {
-
-  
 
 // Function that calls and then renders the weather from the weather API
 function renderTheWeather(city) {
@@ -212,13 +201,3 @@ function showExistingCities() {
 showExistingCities();
 
 
-//   var button = document.createElement("button");
-//     button.classList.add("btn", "btn-info", "btn-block", "test");
-//     button.textContent = saveTheWeather[i];
-//     citiesSearchedList.append(button);
-//   button.addEventListener("click", function(){
-//     currentWeather(saveTheWeather[i]);
-//     weatherForeCast(saveTheWeather[i]);
-//   });
-// } saveI(i)
-//  } 
