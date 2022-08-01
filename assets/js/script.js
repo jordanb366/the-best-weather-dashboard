@@ -42,6 +42,11 @@ cityBtn.addEventListener("click", function(event){
   
 // };
 
+//  for (var i = 0; i < saveTheWeather.length; i++) {
+//   function saveI(i) {
+
+  
+
 // Function that calls and then renders the weather from the weather API
 function renderTheWeather(city) {
   //Makes variables defined
@@ -207,10 +212,6 @@ function showExistingCities() {
 showExistingCities();
 
 
-//  for (var i = 0; i < saveTheWeather.length; i++) {
-//   function saveI(i) {
-
-  
 //   var button = document.createElement("button");
 //     button.classList.add("btn", "btn-info", "btn-block", "test");
 //     button.textContent = saveTheWeather[i];
